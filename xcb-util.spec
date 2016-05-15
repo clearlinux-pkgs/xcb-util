@@ -4,13 +4,15 @@
 #
 Name     : xcb-util
 Version  : 0.4.0
-Release  : 6
+Release  : 7
 URL      : http://xcb.freedesktop.org/dist/xcb-util-0.4.0.tar.gz
 Source0  : http://xcb.freedesktop.org/dist/xcb-util-0.4.0.tar.gz
 Summary  : XCB convenient functions
 Group    : Development/Tools
 License  : MIT
 Requires: xcb-util-lib
+BuildRequires : doxygen
+BuildRequires : graphviz
 BuildRequires : libxcb-dev
 BuildRequires : pkgconfig(xcb)
 BuildRequires : pkgconfig(xorg-macros)
@@ -29,6 +31,7 @@ the X protocol but which have traditionally been provided by Xlib.
 Summary: dev components for the xcb-util package.
 Group: Development
 Requires: xcb-util-lib
+Provides: xcb-util-devel
 
 %description dev
 dev components for the xcb-util package.
@@ -47,9 +50,12 @@ lib components for the xcb-util package.
 
 %build
 %configure --disable-static
-make V=1 %{?_smp_mflags}
+make V=1  %{?_smp_mflags}
 
 %check
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
