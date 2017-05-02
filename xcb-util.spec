@@ -4,7 +4,7 @@
 #
 Name     : xcb-util
 Version  : 0.4.0
-Release  : 7
+Release  : 8
 URL      : http://xcb.freedesktop.org/dist/xcb-util-0.4.0.tar.gz
 Source0  : http://xcb.freedesktop.org/dist/xcb-util-0.4.0.tar.gz
 Summary  : XCB convenient functions
